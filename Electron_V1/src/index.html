@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+    <style>
+        body {
+            background-color: #ffDE04;
+        }
+
+        #welcome {
+            background-color: #fff196;
+            max-width: 100vw;
+            height: 35vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #wel {
+            font-size: 70px;
+            text-align: center;
+        }
+
+        button {
+            height: max-content;
+            padding: 12px 30px;
+            margin: 10px;
+        }
+
+        #quizList {
+            max-width: 100vw;
+            height: auto;
+            display: flex;
+            align-items: center;
+            background-color: #ffDE04;
+            flex-direction: column;
+        }
+        #actualList {
+            max-width: 100vw;
+            margin-top: 15px;
+            text-align: center;
+        }
+
+        h1 {
+            text-align: center;
+        }
+    </style>
+
+    <script>
+        const fs = window.require('file-system');
+
+        fs.readdir("./resources/src/subjects", (err, files) => {
+            files.forEach(file => {
+                var el = document.createElement("BUTTON");
+                el.innerHTML = file;
+                el.onclick = () => handleQuizClick(file);
+                document.getElementById("actualList").appendChild(el);
+            });
+        });
+
+        function handleQuizClick(quiz) {
+            console.log("START" + ": " + quiz);
+        }
+    </script>
+</head>
+
+<body>
+    <div id="welcome">
+        <h1 id="wel">Willkommen beim Lernprofi!</h1>
+    </div>
+    <div id="quizList">
+        <h1>Wähle ein Thema, um fortzufahren</h1>
+        <div id="actualList"></div>
+        <a href="./quizzes.html">Gehe zu der Quiz-Seite</a>
+    </div>
+</body>
+
+</html>
