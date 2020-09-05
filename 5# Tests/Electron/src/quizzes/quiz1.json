@@ -1,0 +1,21 @@
+{
+    "name": "Quiz 1",
+    "steps": [
+        {
+            "questions": [
+                {
+                    "question": "Was ist 1+1?",
+                    "answers": [
+                        [
+                            1,
+                            3,
+                            2,
+                            5
+                        ],
+                        2
+                    ]
+                }
+            ]
+        }
+    ]
+}
